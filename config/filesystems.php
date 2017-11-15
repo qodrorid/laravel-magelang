@@ -62,6 +62,10 @@ return [
             'region' => env('AWS_REGION'),
             'bucket' => env('AWS_BUCKET'),
         ],
+        'dropbox' => [
+            'driver' => 'dropbox',
+            'token' => 'AVUWRwNISiAAAAAAAAAAB8-uKxG40bIJznh-xNiwllzHL1WKnMlH7IZLyF6-JY1P',
+        ],
 
     ],
 
