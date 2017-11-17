@@ -4,7 +4,7 @@
 
 @section('content')
 
-    <form class="container" method="POST" action="{{ route('student.update', $student->id) }}">
+    <form class="container" enctype="multipart/form-data" method="POST" action="{{ route('student.update', $student->id) }}">
     <input type="hidden" name="_method" value="put" />
     {{ csrf_field() }}
     <div class="form-group">
@@ -34,6 +34,12 @@
         @if($errors->first('email'))
         <p style="color:red">{{ $errors->first('email') }}</p>
         @endif
+    </div>
+
+    <div class="form-group">
+        <label>Photo(Kosongkan jika tidak diganti)</label>
+        <input type="file" name="photo"  class="form-control">
+        
     </div>
     
     <button type="submit" class="btn btn-primary">Submit</button>

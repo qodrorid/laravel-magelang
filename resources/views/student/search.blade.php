@@ -23,7 +23,6 @@
         <thead class="thead-dark">
             <tr>
             <th scope="col">#</th>
-            <th scope="col">Photo</th>
             <th scope="col">Nama</th>
             <th scope="col">Alamat</th>
             <th scope="col">Umur</th>
@@ -35,20 +34,6 @@
              @foreach($students as $student)
                 <tr>
                     <td>{{ $student->id }}</td>
-                    <td>
-                        @if($student->photo)
-                            <img 
-                                src="{{ $student->photo }}"
-                                width="100" 
-                                height="100">
-                        @else
-                           <img 
-                                src="/photos/no-avatar.png"
-                                width="100" 
-                                height="100">
-                        @endif
-                        
-                    </td>
                     <td>{{ $student->name }}</td>
                     <td>{{ $student->address }}</td>
                     <td>{{ $student->age }}</td>

@@ -23,12 +23,26 @@ class StudentRequest extends FormRequest
      */
     public function rules()
     {
-        return [
-            'name' => 'required',
-            'address' => 'required',
-            'email' => 'required|email|unique:students',
-            'age' => 'required|numeric'
-        ];
+        
+        switch($this->method()) {
+            case "POST":
+                return [
+                    'name' => 'required',
+                    'address' => 'required',
+                    'email' => 'required|email|unique:students',
+                    'age' => 'required|numeric'
+                ]; 
+                break;
+            case "PUT":
+                return [
+                    'name' => 'required',
+                    'address' => 'required',
+                    'email' => 'required|email',
+                    'age' => 'required|numeric'
+                ];
+                break;
+        }
+        
     }
 
     public function messages()
