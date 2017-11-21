@@ -8,6 +8,11 @@
                 <div class="panel-heading">Login</div>
 
                 <div class="panel-body">
+                    @if(Session::has('error'))
+                        <div class="alert alert-danger">
+                            <p>{{ Session::get('error') }}</p>
+                        </div>
+                    @endif
                     <form class="form-horizontal" method="POST" action="{{ route('auth.auth') }}">
                         {{ csrf_field() }}
 

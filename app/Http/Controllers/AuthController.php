@@ -24,6 +24,13 @@ class AuthController extends Controller
         return view('auth.login');
     }
 
+    public function destroy()
+    {
+        Auth::logout();
+
+        return redirect('/login');
+    }
+
     public function authenticate(Request $request)
     {
         $email = $request->input('email');
@@ -32,10 +39,10 @@ class AuthController extends Controller
         $dataLogin = ['email' => $email, 'password' => $password];
 
         if(Auth::attempt($dataLogin)) {
-           dd("login"); 
-        }
+           return redirect('/student');
+        }   
 
-        dd("gagal login");
+        return redirect()->back()->with("error", "Gagal login"); 
     }
 
     public function logout()
