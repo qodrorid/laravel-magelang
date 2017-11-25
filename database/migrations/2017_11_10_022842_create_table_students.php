@@ -16,12 +16,18 @@ class CreateTableStudents extends Migration
     {
         Schema::create('students', function(Blueprint $table) {
             $table->increments('id');
+            $table->integer('class_id')->unsigned();
             $table->string('name');
             $table->string('address');
             $table->integer('age');
             $table->string('email')->unique();
             $table->string('photo')->nullable();
             $table->timestamps();
+        });
+
+        Schema::table('students', function(Blueprint $table) {
+            $table->foreign('class_id')->references('id')->on('class')
+                ->onUpdate('cascade')->onDelete('cascade');
         });
     }
 

@@ -25,8 +25,9 @@ class StudentController extends Controller
 
     public function index()
     {
-        $students = $this->student->orderBy('id','DESC')->paginate(10);
-
+        $students = $this->student->with('studentClass')->orderBy('id','DESC')->paginate(10);
+         
+    
         return view('student.index', compact('students'));
     }
 

@@ -14,8 +14,11 @@ class StudentTableSeeder extends Seeder
     {
         $faker = Faker::create();
 
+        $dataClass = DB::table('class')->pluck('id')->toArray();
+
         foreach(range(1, 50) as $index) {
             DB::table('students')->insert([
+                'class_id' => $faker->randomElement($dataClass),
                 'name' => $faker->name,
                 'address' => $faker->address,
                 'age' => rand(20, 50),

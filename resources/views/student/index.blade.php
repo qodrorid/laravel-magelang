@@ -25,6 +25,7 @@
             <th scope="col">#</th>
             <th scope="col">Photo</th>
             <th scope="col">Nama</th>
+            <th scope="col">Kelas</th>
             <th scope="col">Alamat</th>
             <th scope="col">Umur</th>
             <th scope="col">Email</th>
@@ -50,6 +51,7 @@
                         
                     </td>
                     <td>{{ $student->name }}</td>
+                    <td>{{ $student->studentClass->degree }}</td>
                     <td>{{ $student->address }}</td>
                     <td>{{ $student->age }}</td>
                     <td>{{ $student->email }}</td>
